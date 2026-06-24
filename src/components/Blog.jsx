@@ -9,7 +9,7 @@ function Blog() {
         <h2 className="section-title">Writing</h2>
 
         {POSTS.length === 0 ? (
-          <p className="empty-state">No posts yet — check back soon.</p>
+          <p className="empty-state">No posts yet - check back soon.</p>
         ) : (
           <div className="post-list">
             {POSTS.map((post) => (

@@ -1,23 +1,36 @@
 const EXPERIENCE = [
   {
-    role: 'QA Automation Engineer',
+    role: 'Security Automation Engineer',
     company: 'EchoStar / Dish Network Technologies',
     meta: 'Fortune 500 · Aug 2023 – Jan 2026',
     points: [
-      'Built and scaled automation frameworks, eliminating 60+ hours of manual testing effort',
-      'Built an automated security defect-reporting tool (Python, Robot Framework, JIRA API) — cut manual review effort by 70%',
-      'Applied OWASP security practices validating APIs for Apple and Amazon B2B integrations',
-      'Designed CI/CD pipelines with security controls for reliable, secure deployments',
+      'Built and scaled security-focused automation frameworks, eliminating 60+ hours of manual testing effort across critical business systems',
+      'Developed an automated security defect-reporting tool (Python, Robot Framework, JIRA API) - reduced manual security review effort by 70%',
+      'Applied OWASP security practices validating APIs for Apple and Amazon B2B integrations, identifying security misconfigurations before production',
+      'Designed CI/CD pipelines with embedded security controls, enabling reliable and secure deployments across the delivery lifecycle',
+    ],
+  },
+  {
+    role: 'Master of Cybersecurity',
+    company: 'Monash University, Melbourne',
+    meta: 'Mar 2026 – Dec 2027 (in progress)',
+    points: [
+      'Completed: Cyber Operations - insider threats, SOC operations, threat hunting, and incident response',
+      'Completed: Computer Architecture & Networks - networking, routing, and network security foundations',
+      'Currently enrolled: Software Security, Cryptography, Network & Cloud Security',
+    ],
+  },
+  {
+    role: 'Security Research & Labs',
+    company: 'TryHackMe · Independent Projects',
+    meta: 'Ongoing',
+    points: [
+      'Building a CI/CD-integrated vulnerability scanner (SecAudit) that auto-raises GitHub Issues for OWASP-mapped findings',
+      'Developed AI Log Anomaly Detector - hybrid ML + rule-based system detecting brute force, scanning, and odd-hour access patterns',
+      'Working through TryHackMe Pre-Security path as a structured baseline before SOC-focused defensive rooms',
     ],
   },
 ];
-
-const CURRENT_LEARNING = {
-  completed: [
-    { unit: 'Cyber Operations', focus: ['Insider Threats', 'Social Engineering', 'Human-Centric Security', 'Security Awareness'] },
-  ],
-  upcoming: ['Cryptography', 'Software Security', 'Network Security', 'Cloud Security'],
-};
 
 function About() {
   return (
@@ -26,13 +39,11 @@ function About() {
         <p className="section-eyebrow">// whoami</p>
         <h2 className="section-title">Background</h2>
         <p className="about-text">
-          QA Automation Engineer with 2.6 years of experience at a Fortune 500
-          company, currently completing a Master of Cybersecurity in Melbourne.
-          My background is in building automated systems that catch problems
-          before a human has to — test automation, defect detection, CI/CD.
-          I'm applying that same instinct to security: automated vulnerability
-          scanning, anomaly detection, and DevSecOps tooling, while formally
-          building out security fundamentals through my Master's.
+          Security Automation Engineer with 2.6 years of professional experience at EchoStar / Dish Network,
+          a Fortune 500 company. My background is building automated systems that catch problems before they
+          reach production - security defect detection, API validation, CI/CD pipelines with security controls.
+          I'm now completing a Master of Cybersecurity at Monash University, applying that same engineering
+          instinct to vulnerability scanning, threat detection, and DevSecOps tooling.
         </p>
 
         <div className="timeline">
@@ -50,42 +61,6 @@ function About() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="learning-journey">
-          <h3 className="learning-journey-title">Current Learning Journey</h3>
-          <p className="learning-journey-meta">Master of Cybersecurity · Monash University, Melbourne</p>
-
-          <div className="learning-columns">
-            <div className="learning-col">
-              <p className="learning-col-label">
-                <span className="learning-dot learning-dot-done" />
-                Completed
-              </p>
-              {CURRENT_LEARNING.completed.map((c) => (
-                <div key={c.unit} className="learning-unit">
-                  <p className="learning-unit-name">{c.unit}</p>
-                  <div className="learning-tags">
-                    {c.focus.map((f) => (
-                      <span key={f} className="learning-tag">{f}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="learning-col">
-              <p className="learning-col-label">
-                <span className="learning-dot learning-dot-upcoming" />
-                Upcoming
-              </p>
-              <div className="learning-tags">
-                {CURRENT_LEARNING.upcoming.map((u) => (
-                  <span key={u} className="learning-tag learning-tag-upcoming">{u}</span>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

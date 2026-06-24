@@ -10,61 +10,129 @@ const GithubIcon = () => (
 const PROJECTS = [
   {
     id: 1,
-    severity: 'HIGH',
-    title: 'SecAudit — Automated Security Vulnerability Scanner',
-    tags: ['Python', 'GitHub Actions', 'DevSecOps'],
-    summary: 'Automated scanner that detects OWASP-mapped vulnerabilities and auto-creates GitHub Issues for every finding.',
-    details: 'Scans live web applications for missing security headers, HTTPS enforcement, and insecure cookie configurations. Runs on a CI/CD pipeline via GitHub Actions — on every code push and on a weekly schedule — and automatically raises severity-rated GitHub Issues for each vulnerability found, mirroring a JIRA defect-automation tool built professionally at EchoStar.',
-    metrics: [
-      { value: 'Weekly', label: 'Scan schedule' },
-      { value: 'CI/CD', label: 'GitHub Actions' },
-      { value: 'Auto', label: 'Issue creation' },
-    ],
-    lessons: 'The same pattern I used professionally for JIRA defect automation translates directly to security tooling — auto-creating tickets for findings is what makes a scanner actually get used, instead of producing a report nobody reads.',
-    future: 'Add deduplication logic so repeated scans of the same target don\'t create duplicate issues for the same finding.',
-    github: 'https://github.com/hvarsh-cyber/secaudit',
-  },
-  {
-    id: 2,
-    severity: 'HIGH',
+    severity: 'FLAGSHIP',
     title: 'AI Log Anomaly Detector',
-    tags: ['Python', 'scikit-learn', 'Machine Learning'],
-    summary: 'Hybrid rule-based + ML system that detects brute force attacks, endpoint scanning, and odd-hour access in server logs.',
-    details: 'Uses an Isolation Forest model for anomaly scoring, combined with security detection rules as the deciding logic. First version had a false-positive problem from a fixed contamination assumption — redesigned across three iterations so rules determine what counts as a threat, and the ML score is used purely to rank severity. Caught all three injected attack patterns with zero false positives on the final version.',
+    tags: ['Python', 'scikit-learn', 'Machine Learning', 'Security Engineering'],
+    summary: 'Hybrid rule-based + ML system that detects brute force attacks, endpoint scanning, and odd-hour automated access in server logs. 3/3 attacks caught, 0 false positives.',
+    screenshots: [
+      { src: '/images/screenshots/anomaly-run.png', caption: 'Model run - 531 logs processed, 31 anomalies detected' },
+      { src: '/images/screenshots/anomaly-detections.png', caption: 'Detection output - brute force and odd-hour access flagged' },
+    ],
+    details: 'Built a hybrid detection system combining Isolation Forest anomaly scoring with deterministic security rules. The key architectural decision: rules decide what counts as a threat; the ML score ranks severity only. This solved the false-positive problem from the first version, which flagged 10% of normal traffic. Tested against 531 log entries with three injected attack patterns - all caught, zero false alarms.',
+    architecture: [
+      'Log ingestion & parsing - structured extraction from raw server logs',
+      'Rule engine - deterministic detection for brute force, endpoint scanning, and odd-hour access',
+      'Isolation Forest model - statistical anomaly scoring used as severity signal only, not decision layer',
+      'Severity ranking - ML score prioritises findings from rules that fired',
+    ],
     metrics: [
       { value: '531', label: 'Logs tested' },
       { value: '3/3', label: 'Attacks caught' },
       { value: '0', label: 'False positives' },
     ],
-    lessons: 'ML is good at finding statistical outliers, not at deciding what a human should care about. Letting security rules make the threat decision — and using the ML score only to rank severity — fixed both false positives and false negatives.',
-    future: 'Extend the rule set to cover lateral movement patterns, and test against a larger, more varied log dataset.',
+    impact: 'Demonstrates the difference between ML-as-decision (high false positives) and ML-as-ranking (reliable signal). Rebuilt across 3 iterations - each fixing a specific detection flaw.',
+    lessons: 'ML is good at finding statistical outliers, not at deciding what a human should care about. Letting security rules decide the threat - and using ML only to rank severity - fixed both false positives and false negatives.',
+    future: 'Extend rule set to cover lateral movement patterns, test against larger varied log datasets.',
     github: 'https://github.com/hvarsh-cyber/ai-log-anomaly-detector',
+  },
+  {
+    id: 2,
+    severity: 'HIGH',
+    title: 'SecAudit - Automated Security Vulnerability Scanner',
+    tags: ['Python', 'GitHub Actions', 'DevSecOps', 'OWASP'],
+    summary: 'CI/CD-integrated scanner that detects OWASP-mapped vulnerabilities and auto-creates GitHub Issues for every finding - runs on every push and weekly.',
+    screenshots: [
+      { src: '/images/screenshots/secaudit-scan.png', caption: 'SecAudit scan output - vulnerabilities detected and issues raised' },
+    ],
+    details: 'Scans live web applications for missing security headers, HTTPS enforcement, and insecure cookie configurations. Runs on a CI/CD pipeline via GitHub Actions - on every code push and weekly - and automatically raises severity-rated GitHub Issues for each vulnerability found. Mirrors the JIRA defect-automation tool built professionally at EchoStar.',
+    architecture: null,
+    metrics: [
+      { value: 'Weekly', label: 'Scan schedule' },
+      { value: 'CI/CD', label: 'GitHub Actions' },
+      { value: 'Auto', label: 'Issue creation' },
+    ],
+    impact: null,
+    lessons: 'Auto-creating tickets for findings is what makes a scanner actually get used, instead of producing a report nobody reads.',
+    future: 'Add deduplication logic so repeated scans don\'t create duplicate issues for the same finding.',
+    github: 'https://github.com/hvarsh-cyber/secaudit',
   },
   {
     id: 3,
     severity: 'PLANNED',
     title: 'Cloud Security Posture Tool',
-    tags: ['Python', 'AWS', 'boto3'],
-    summary: 'AWS misconfiguration scanner benchmarked against CIS standards.',
-    details: 'In progress. Will enumerate S3 buckets, security groups, and IAM policies via boto3, flagging misconfigurations against CIS Benchmarks and producing a structured findings report.',
+    tags: ['Python', 'AWS', 'boto3', 'CIS Benchmarks'],
+    summary: 'AWS misconfiguration scanner benchmarked against CIS standards - S3, security groups, and IAM policy enumeration.',
+    screenshots: [],
+    details: 'In progress. Will enumerate S3 buckets, security groups, and IAM policies via boto3, flagging misconfigurations against CIS Benchmarks and producing a structured severity-rated findings report.',
+    architecture: null,
     metrics: null,
+    impact: null,
     lessons: null,
-    future: 'Currently scoping CIS Benchmark coverage and boto3 permission requirements before starting implementation.',
+    future: 'Currently scoping CIS Benchmark coverage and boto3 permission requirements.',
+    github: null,
+  },
+  {
+    id: 4,
+    severity: 'WIN',
+    title: 'Stack Truck - 1st Place, 24-Hour Hackathon',
+    tags: ['Node.js', 'MongoDB Atlas', 'EJS', 'Bootstrap', 'JavaScript'],
+    summary: 'Full-stack logistics platform enabling goods pooling and real-time driver-client coordination. Won 1st place at Sahaj Software\'s 24-hour hackathon.',
+    screenshots: [],
+    details: 'Built in 24 hours at the Institution\'s Innovation Council hackathon at JSS Science and Technology University, Mysuru (May 2022). Stack Truck let multiple shippers pool goods into shared truck loads and gave drivers and clients a real-time channel to coordinate pickups, routes, and delivery status.',
+    architecture: null,
+    metrics: [
+      { value: '1st', label: 'Place, 24hr hackathon' },
+      { value: '24hrs', label: 'Build time' },
+      { value: 'Full-stack', label: 'Node + MongoDB' },
+    ],
+    impact: null,
+    lessons: 'Shipping end-to-end in 24 hours taught me to prioritise the riskiest unknowns first and cut scope ruthlessly.',
+    future: null,
     github: null,
   },
 ];
 
 const severityColor = {
-  HIGH: 'var(--red)',
-  MEDIUM: 'var(--amber)',
+  FLAGSHIP: 'var(--accent)',
+  HIGH: 'var(--amber)',
   PLANNED: 'var(--text-tertiary)',
+  WIN: '#2da44e',
 };
+
+function ScreenshotGallery({ screenshots }) {
+  const [active, setActive] = useState(0);
+  if (!screenshots || screenshots.length === 0) return null;
+
+  return (
+    <div className="project-gallery">
+      <div className="project-screenshot">
+        <img src={screenshots[active].src} alt={screenshots[active].caption} />
+      </div>
+      {screenshots[active].caption && (
+        <p className="screenshot-caption">{screenshots[active].caption}</p>
+      )}
+      {screenshots.length > 1 && (
+        <div className="screenshot-tabs">
+          {screenshots.map((s, i) => (
+            <button
+              key={i}
+              className={`screenshot-tab ${i === active ? 'active' : ''}`}
+              onClick={() => setActive(i)}
+            >
+              Screenshot {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function ProjectCard({ project }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="project-card">
+    <div className={`project-card ${project.severity === 'FLAGSHIP' ? 'project-flagship' : ''}`}>
       <button
         className="project-header"
         onClick={() => setOpen(!open)}
@@ -85,7 +153,18 @@ function ProjectCard({ project }) {
 
       {open && (
         <div className="project-body">
+          <ScreenshotGallery screenshots={project.screenshots} />
+
           <p>{project.details}</p>
+
+          {project.architecture && (
+            <div className="project-architecture">
+              <span className="project-note-label">Architecture</span>
+              <ul className="arch-list">
+                {project.architecture.map((a, i) => <li key={i}>{a}</li>)}
+              </ul>
+            </div>
+          )}
 
           {project.metrics && (
             <div className="project-metrics">
@@ -103,6 +182,13 @@ function ProjectCard({ project }) {
               <span key={tag} className="tag">{tag}</span>
             ))}
           </div>
+
+          {project.impact && (
+            <div className="project-note project-note-impact">
+              <span className="project-note-label">Business impact</span>
+              <p>{project.impact}</p>
+            </div>
+          )}
 
           {project.lessons && (
             <div className="project-note">
@@ -133,12 +219,10 @@ function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <p className="section-eyebrow">// issues — open</p>
+        <p className="section-eyebrow">// issues - open</p>
         <h2 className="section-title">Projects</h2>
         <div className="project-list">
-          {PROJECTS.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
+          {PROJECTS.map((p) => <ProjectCard key={p.id} project={p} />)}
         </div>
       </div>
     </section>
