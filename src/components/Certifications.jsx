@@ -3,6 +3,20 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CERTIFICATIONS = [
   {
+    title: 'Spot Award, Dev-Fi Test Automation',
+    issuer: 'Dish Network Technologies · Sep 2024',
+    images: ['/images/certs/spot-award.png'],
+    badge: 'AWARD',
+    badgeColor: '#E8A33D',
+  },
+  {
+    title: '1st Place, 24-Hour Hackathon',
+    issuer: 'Sahaj Software · JSSSTU · May 2022',
+    images: ['/images/certs/hackathon-certificate.png'],
+    badge: 'WIN',
+    badgeColor: '#2da44e',
+  },
+  {
     title: 'OWASP Top 10 for LLM Applications',
     issuer: 'LinkedIn Learning',
     images: ['/images/certs/owasp-llm.png'],
@@ -32,20 +46,7 @@ const CERTIFICATIONS = [
     issuer: 'EchoStar / Dish Network',
     images: ['/images/certs/echostar-ai-aware.png'],
   },
-  {
-    title: 'Spot Award, Dev-Fi Test Automation',
-    issuer: 'Dish Network Technologies · Sep 2024',
-    images: ['/images/certs/spot-award.png'],
-    badge: 'AWARD',
-    badgeColor: '#E8A33D',
-  },
-  {
-    title: '1st Place, 24-Hour Hackathon',
-    issuer: 'Sahaj Software · JSSSTU · May 2022',
-    images: ['/images/certs/hackathon-certificate.png'],
-    badge: 'WIN',
-    badgeColor: '#2da44e',
-  },
+
   {
     title: 'IBM / EchoStar AI Academy',
     issuer: '8 courses completed',

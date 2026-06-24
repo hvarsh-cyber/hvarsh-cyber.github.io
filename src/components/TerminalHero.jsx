@@ -32,7 +32,6 @@ function TerminalHero() {
       <div className="container hero-inner">
         <div className="hero-identity visible">
 
-          <p className="hero-eyebrow">// security_automation_engineer.py</p>
           <h1 className="hero-name">Himavarsha Sathyanarayana</h1>
 
           <p className="hero-tagline">
@@ -53,12 +52,18 @@ function TerminalHero() {
 
           <div className="hero-badges">
             <div className="hero-badge">
-              <span className="hero-badge-value">2.6 yrs</span>
+              <span className="hero-badge-value hero-badge-live">
+                <span className="stat-live-dot" />
+                2.6 yrs
+              </span>
               <span className="hero-badge-label">Fortune 500 Experience</span>
             </div>
             <div className="hero-badge-divider" />
             <div className="hero-badge">
-              <span className="hero-badge-value">Monash</span>
+              <span className="hero-badge-value hero-badge-live">
+                <span className="stat-live-dot" />
+                Monash University
+              </span>
               <span className="hero-badge-label">Master of Cybersecurity</span>
             </div>
             <div className="hero-badge-divider" />
