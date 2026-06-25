@@ -1,13 +1,108 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const TYPEWRITER_TEXT = 'Security Automation Engineer';
+
+const PARTICLES = Array.from({ length: 60 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * 2 + 0.5,
+  speedX: (Math.random() - 0.5) * 0.015,
+  speedY: (Math.random() - 0.5) * 0.015,
+  opacity: Math.random() * 0.5 + 0.1,
+}));
+
+function ParticleNetwork() {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef(PARTICLES.map(p => ({ ...p })));
+  const animRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw() {
+      const { width, height } = canvas;
+      ctx.clearRect(0, 0, width, height);
+
+      const pts = particlesRef.current;
+
+      // Move particles
+      pts.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < 0) p.x = 100;
+        if (p.x > 100) p.x = 0;
+        if (p.y < 0) p.y = 100;
+        if (p.y > 100) p.y = 0;
+      });
+
+      // Draw connections
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = (pts[i].x - pts[j].x) * width / 100;
+          const dy = (pts[i].y - pts[j].y) * height / 100;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 212, 255, ${0.12 * (1 - dist / 140)})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(pts[i].x * width / 100, pts[i].y * height / 100);
+            ctx.lineTo(pts[j].x * width / 100, pts[j].y * height / 100);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw particles
+      pts.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x * width / 100, p.y * height / 100, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
+        ctx.fill();
+      });
+
+      animRef.current = requestAnimationFrame(draw);
+    }
+
+    draw();
+    return () => {
+      cancelAnimationFrame(animRef.current);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}
+    />
+  );
+}
 
 function TerminalHero() {
   const [displayed, setDisplayed] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
   const [done, setDone] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
     let i = 0;
     const interval = setInterval(() => {
       if (i < TYPEWRITER_TEXT.length) {
@@ -28,11 +123,22 @@ function TerminalHero() {
   }, [done]);
 
   return (
-    <section className="hero">
-      <div className="container hero-inner">
-        <div className="hero-identity visible">
+    <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      <ParticleNetwork />
 
-          <h1 className="hero-name">Himavarsha Sathyanarayana</h1>
+      {/* Glow orbs */}
+      <div className="hero-orb hero-orb-1" />
+      <div className="hero-orb hero-orb-2" />
+
+      <div className="container hero-inner" style={{ position: 'relative', zIndex: 1 }}>
+        <div className={`hero-identity ${visible ? 'visible' : ''}`}>
+
+          <div className="hero-status-bar">
+            <span className="hero-status-dot" />
+            <span>Available for internships and graduate roles · Melbourne, AU</span>
+          </div>
+
+          <h1 className="hero-name">Himavarsha<br />Sathyanarayana</h1>
 
           <p className="hero-tagline">
             <span>{displayed}</span>

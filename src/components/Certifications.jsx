@@ -17,6 +17,11 @@ const CERTIFICATIONS = [
     badgeColor: '#2da44e',
   },
   {
+    title: 'EchoStar AI Aware Graduate',
+    issuer: 'EchoStar / Dish Network',
+    images: ['/images/certs/echostar-ai-aware.png'],
+  },
+  {
     title: 'OWASP Top 10 for LLM Applications',
     issuer: 'LinkedIn Learning',
     images: ['/images/certs/owasp-llm.png'],
@@ -37,17 +42,6 @@ const CERTIFICATIONS = [
     images: ['/images/certs/cybersecurity-foundations.png'],
   },
   {
-    title: 'PractiTest Certified User',
-    issuer: 'PractiTest · Aug 2024',
-    images: ['/images/certs/practitest.png'],
-  },
-  {
-    title: 'EchoStar AI Aware Graduate',
-    issuer: 'EchoStar / Dish Network',
-    images: ['/images/certs/echostar-ai-aware.png'],
-  },
-
-  {
     title: 'IBM / EchoStar AI Academy',
     issuer: '8 courses completed',
     images: [
@@ -61,6 +55,12 @@ const CERTIFICATIONS = [
       '/images/certs/ibm/ibm-8.png',
     ],
   },
+  {
+    title: 'PractiTest Certified User',
+    issuer: 'PractiTest · Aug 2024',
+    images: ['/images/certs/practitest.png'],
+  },
+
 ];
 
 function CertModal({ cert, onClose }) {

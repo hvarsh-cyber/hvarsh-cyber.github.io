@@ -1,60 +1,59 @@
 import { useEffect, useRef } from 'react';
 
-const UNITS =
-  [
-    {
-      status: 'awaiting',
-      code: 'FIT9136',
-      title: 'Introduction to Python',
-      topics: ['Python', 'Automation', 'Problem Solving', 'Data Structures'],
-    },
-    {
-      status: 'awaiting',
-      code: 'FIT9137',
-      title: 'Computer Architecture and Networks',
-      topics: ['Networking', 'Routing', 'Computer Systems', 'Network Security Foundations'],
-    },
-    {
-      status: 'awaiting',
-      code: 'FIT5129',
-      title: 'Cyber Operations',
-      topics: ['Threat Hunting', 'SOC Operations', 'Incident Response', 'Security Monitoring'],
-    },
-    {
-      status: 'awaiting',
-      code: 'FIT5057',
-      title: 'Project Management',
-      topics: ['Agile', 'Risk Management', 'Cost Management', 'Leadership'],
-    },
-    {
-      status: 'upcoming',
-      code: null,
-      title: 'Cryptography',
-      topics: ['Symmetric and Asymmetric Encryption', 'PKI', 'Hash Functions', 'Protocol Security'],
-    },
-    {
-      status: 'upcoming',
-      code: null,
-      title: 'Software Security',
-      topics: ['Secure SDLC', 'Vulnerability Analysis', 'Code Review', 'Exploit Techniques'],
-    },
-    {
-      status: 'upcoming',
-      code: null,
-      title: 'Network Security',
-      topics: ['Firewall Design', 'Intrusion Detection', 'VPN', 'Network Monitoring'],
-    },
-    {
-      status: 'upcoming',
-      code: null,
-      title: 'Cloud Security',
-      topics: ['Cloud Architecture', 'Zero Trust', 'Cloud Misconfigurations', 'IAM'],
-    },
-  ];
+const UNITS = [
+  {
+    status: 'awaiting',
+    code: 'FIT9136',
+    title: 'Introduction to Python',
+    topics: ['Python', 'Automation', 'Problem Solving', 'Data Structures'],
+  },
+  {
+    status: 'awaiting',
+    code: 'FIT9137',
+    title: 'Computer Architecture and Networks',
+    topics: ['Networking', 'Routing', 'Computer Systems', 'Network Security Foundations'],
+  },
+  {
+    status: 'awaiting',
+    code: 'FIT5129',
+    title: 'Cyber Operations',
+    topics: ['Threat Hunting', 'SOC Operations', 'Incident Response', 'Security Monitoring'],
+  },
+  {
+    status: 'awaiting',
+    code: 'FIT5057',
+    title: 'Project Management',
+    topics: ['Agile', 'Risk Management', 'Cost Management', 'Leadership'],
+  },
+  {
+    status: 'upcoming',
+    code: null,
+    title: 'Cryptography',
+    topics: ['Symmetric and Asymmetric Encryption', 'PKI', 'Hash Functions', 'Protocol Security'],
+  },
+  {
+    status: 'upcoming',
+    code: null,
+    title: 'Software Security',
+    topics: ['Secure SDLC', 'Vulnerability Analysis', 'Code Review', 'Exploit Techniques'],
+  },
+  {
+    status: 'upcoming',
+    code: null,
+    title: 'Network Security',
+    topics: ['Firewall Design', 'Intrusion Detection', 'VPN', 'Network Monitoring'],
+  },
+  {
+    status: 'upcoming',
+    code: null,
+    title: 'Cloud Security',
+    topics: ['Cloud Architecture', 'Zero Trust', 'IAM', 'Cloud Misconfigurations'],
+  },
+];
 
 const STATUS_META = {
   awaiting: { label: 'Completed · Awaiting Results', color: 'var(--amber)' },
-  upcoming: { label: 'Upcoming', color: 'var(--blue)' },
+  upcoming: { label: 'Upcoming', color: '#60A5FA' },
 };
 
 const STATUS_ORDER = ['awaiting', 'upcoming'];
@@ -128,8 +127,7 @@ function MonashJourney() {
           })}
         </div>
 
-        <div className="monash-graduation reveal-card" style={{ transitionDelay: '560ms' }}>
-          <div className="monash-grad-icon">🎓</div>
+        <div className="monash-graduation reveal-card" style={{ transitionDelay: '640ms' }}>
           <div className="monash-grad-text">
             <p className="monash-grad-label">Expected Graduation</p>
             <p className="monash-grad-date">December 2027</p>

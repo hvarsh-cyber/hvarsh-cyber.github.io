@@ -1,32 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #0A0E14;
-  --bg-elevated: #10151D;
-  --bg-card: #131922;
-  --border: #1F2731;
-  --border-hover: #2D3744;
-  --text-primary: #E8E6E3;
-  --text-secondary: #8B95A1;
-  --text-tertiary: #5A6472;
-  --accent: #5FD68A;
-  --accent-dim: #3A8F5C;
-  --amber: #E8A33D;
-  --red: #E8635F;
-  --blue: #5B9BD5;
+  --bg: #0F1923;
+  --bg-elevated: #141F2E;
+  --bg-card: #172030;
+  --border: #1E3048;
+  --border-hover: #2A4266;
+  --text-primary: #F0F4F8;
+  --text-secondary: #8BA5C0;
+  --text-tertiary: #4D6A85;
+  --accent: #00D4FF;
+  --accent-dim: #0099BB;
+  --accent-glow: rgba(0, 212, 255, 0.15);
+  --amber: #F59E0B;
+  --red: #EF4444;
+  --blue: #2563EB;
+  --green: #10B981;
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Inter', -apple-system, sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
@@ -34,44 +30,22 @@ body {
   font-family: var(--sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
+::selection { background: var(--accent-dim); color: #000; }
 
-::selection {
-  background: var(--accent-dim);
-  color: var(--text-primary);
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-hover);
-  border-radius: 5px;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
 .container {
@@ -81,7 +55,5 @@ button {
 }
 
 @media (max-width: 640px) {
-  .container {
-    padding: 0 20px;
-  }
+  .container { padding: 0 20px; }
 }

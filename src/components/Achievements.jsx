@@ -3,43 +3,39 @@ import { useEffect, useRef } from 'react';
 const ACHIEVEMENTS = [
   {
     title: 'Spot Award, Dev-Fi Test Automation',
-    org: 'EchoStar / Dish Network Technologies',
+    org: 'Dish Network Technologies · Sep 2024',
     date: 'Sep 2024',
-    description: 'Awarded for demonstrating quick learning ability and saving significant manual effort through Dev-Fi test automation. Signed by Sudeep Kumar Dash, Manager Software Quality.',
+    description: 'Awarded for quick learning ability and saving significant manual effort through Dev-Fi test automation. Signed by Sudeep Kumar Dash, Manager Software Quality.',
     tag: 'AWARD',
-    metric: '★',
+    metric: '🏆',
   },
   {
     title: '1st Place, 24-Hour Hackathon',
-    org: 'JSS Science and Technology University, Mysuru',
+    org: 'JSSSTU · May 2022',
     date: 'May 2022',
-    description: 'Won 1st place building Stack Truck, a full-stack logistics platform enabling goods pooling and real-time driver-client coordination. Built in 24 hours with Node.js and MongoDB.',
+    description: 'Won 1st place building Stack Truck, a full-stack logistics platform, in a 24-hour hackathon sponsored by Sahaj Software.',
     tag: 'WIN',
-    metric: '★',
+    metric: '🥇',
   },
   {
     title: 'Onshore Manager Recognitions',
-    org: 'EchoStar / Dish Network Technologies',
-    date: 'FY2024 to 2025',
-    description: 'Recognised twice by onshore managers for automating critical workflows, consistent delivery quality, and upholding company values across cross-functional teams.',
+    org: 'EchoStar · FY2023 to 2026',
+    date: 'FY2023 to 2026',
+    description: 'Recognised twice by onshore managers for automating critical workflows and consistent delivery quality across cross-functional teams.',
     tag: 'RECOGNITION',
-    metric: '★',
+    metric: '🎖️',
   },
   {
     title: '40%+ Reduction in Manual Execution Effort',
-    org: 'EchoStar / Dish Network Technologies',
-    date: 'FY2023 to FY2026',
-    description: 'Automation scripts developed across critical regression suites delivered over 40% reduction in manual execution and regression coverage effort, freeing the team to focus on exploratory and security testing.',
+    org: 'EchoStar · FY2023 to 2026',
+    date: 'FY2023 to 2026',
+    description: 'Automation scripts delivered over 40% reduction in manual execution and regression coverage effort, freeing the team for security and exploratory testing.',
     tag: 'IMPACT',
-    metric: '★',
+    metric: '📈',
   },
-
-
 ];
 
 const tagColor = {
-  CURRENT: 'var(--accent)',
-  EMPLOYER: 'var(--blue)',
   AWARD: 'var(--amber)',
   WIN: '#2da44e',
   IMPACT: 'var(--accent)',
@@ -81,11 +77,7 @@ function Achievements() {
                 </span>
                 <span className="achievement-date">{a.date}</span>
               </div>
-              {a.metric && (
-                <div className="achievement-metric" style={{ color: tagColor[a.tag] }}>
-                  {a.metric}
-                </div>
-              )}
+              <div className="achievement-metric">{a.metric}</div>
               <h3 className="achievement-title">{a.title}</h3>
               <p className="achievement-org">{a.org}</p>
               <p className="achievement-desc">{a.description}</p>

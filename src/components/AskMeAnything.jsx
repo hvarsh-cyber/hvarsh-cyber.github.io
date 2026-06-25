@@ -13,12 +13,14 @@ const SUGGESTED_QUESTIONS = [
   "What is your visa status?",
   "Tell me about your hackathon win",
   "What was your Spot Award for?",
+  "What do you do outside of work?",
+  "What languages do you speak?",
 ];
 
 const KNOWLEDGE_BASE = [
   {
     keywords: ['experience', 'background', 'work history', 'echostar', 'dish', 'professional', 'career', 'job'],
-    answer: `I worked as a Security Automation Engineer at EchoStar / Dish Network Technologies - a Fortune 500 company - for 2.6 years (Aug 2023 – Jan 2026).
+    answer: `I worked as a Security Automation Engineer at EchoStar / Dish Network Technologies - a Fortune 500 company - for 2.6 years (Aug 2023 to Jan 2026).
 
 My work involved building automation frameworks, validating APIs for Apple and Amazon B2B integrations, designing CI/CD pipelines with security controls, and developing defect detection tooling. I automated over 300 test cases and built an automated security defect-reporting tool that cut manual review effort by 70%.
 
@@ -28,13 +30,13 @@ I received a Spot Award in Sep 2024 for automating critical business workflows, 
     keywords: ['projects', 'portfolio', 'built', 'github', 'secaudit', 'scanner', 'vulnerability'],
     answer: `My cybersecurity portfolio includes:
 
-• AI Log Anomaly Detector - hybrid ML + rule-based system detecting brute force, endpoint scanning, and odd-hour access. 531 logs tested, 3/3 attacks caught, 0 false positives.
+- AI Log Anomaly Detector - hybrid ML + rule-based system detecting brute force, endpoint scanning, and odd-hour access. 531 logs tested, 3/3 attacks caught, 0 false positives.
 
-• SecAudit - CI/CD-integrated vulnerability scanner that detects OWASP-mapped issues and auto-creates GitHub Issues for every finding. Runs on every push and weekly.
+- SecAudit - CI/CD-integrated vulnerability scanner that detects OWASP-mapped issues and auto-creates GitHub Issues for every finding. Runs on every push and weekly.
 
-• Cloud Security Posture Tool (in progress) - AWS misconfiguration scanner benchmarked against CIS standards using boto3.
+- Cloud Security Posture Tool (in progress) - AWS misconfiguration scanner benchmarked against CIS standards using boto3.
 
-• Stack Truck - 1st place at a 24-hour hackathon (JSSSTU, May 2022). Full-stack logistics platform built with Node.js and MongoDB.
+- Stack Truck - 1st place at a 24-hour hackathon (JSSSTU, May 2022). Full-stack logistics platform built with Node.js and MongoDB.
 
 All active projects are on GitHub at github.com/hvarsh-cyber.`,
   },
@@ -44,24 +46,23 @@ All active projects are on GitHub at github.com/hvarsh-cyber.`,
 
 Cybersecurity felt like a natural progression because the same instinct applies directly: instead of finding bugs before production, I'm finding vulnerabilities before attackers do. The tooling is different, but the problem-solving pattern is identical.
 
-I'm now completing a Master of Cybersecurity at Monash University while building security-focused projects - vulnerability scanners, anomaly detection systems, and DevSecOps tooling - to close the gap between my automation background and security engineering.`,
+I'm now completing a Master of Cybersecurity at Monash University while building security-focused projects - vulnerability scanners, anomaly detection systems, and DevSecOps tooling.`,
   },
   {
     keywords: ['monash', 'studying', 'masters', 'university', 'degree', 'education', 'units', 'subjects', 'coursework'],
-    answer: `I'm completing a Master of Cybersecurity at Monash University (Mar 2026 – Dec 2027).
-
-Completed:
-• Introduction to Python
-• Computer Architecture & Networks
+    answer: `I'm completing a Master of Cybersecurity at Monash University (Mar 2026 to Dec 2027).
 
 Completed, awaiting results:
-• Cyber Operations - threat hunting, SOC operations, incident response
-• Project Management - Agile, risk management, cost management
+- Introduction to Python
+- Computer Architecture and Networks
+- Cyber Operations - threat hunting, SOC operations, incident response
+- Project Management - Agile, risk management, cost management
 
 Upcoming:
-• Cryptography
-• Software Security
-• Network & Cloud Security
+- Cryptography
+- Software Security
+- Network Security
+- Cloud Security
 
 Expected graduation: December 2027.`,
   },
@@ -69,18 +70,18 @@ Expected graduation: December 2027.`,
     keywords: ['certifications', 'certified', 'owasp', 'ibm', 'practitest', 'credentials', 'qualifications'],
     answer: `My certifications include:
 
-• OWASP Top 10 for LLM Applications
-• Cloud Security and Audit Fundamentals (AWS, Azure, GCP)
-• Cryptography and Network Security
-• Cybersecurity Foundations
-• PractiTest Certified User (Aug 2024)
-• EchoStar AI Aware Graduate
-• IBM / EchoStar AI Academy - 8 courses covering Generative AI, Prompt Engineering, Foundation Models, and Responsible AI
+- OWASP Top 10 for LLM Applications
+- Cloud Security and Audit Fundamentals (AWS, Azure, GCP)
+- Cryptography and Network Security
+- Cybersecurity Foundations
+- PractiTest Certified User (Aug 2024)
+- EchoStar AI Aware Graduate
+- IBM / EchoStar AI Academy - 8 courses covering Generative AI, Prompt Engineering, Foundation Models, and Responsible AI
 
 I'm currently planning to sit ISC2 Certified in Cybersecurity (CC) before end of 2026.`,
   },
   {
-    keywords: ['technologies', 'tech stack', 'tools', 'skills', 'python', 'programming', 'languages', 'frameworks'],
+    keywords: ['technologies', 'tech stack', 'tools', 'skills', 'python', 'programming', 'frameworks'],
     answer: `My core stack:
 
 Languages: Python (primary), JavaScript, SQL, Robot Framework
@@ -89,13 +90,13 @@ Security tooling: OWASP testing, vulnerability scanning, security automation, AP
 
 DevOps / CI/CD: GitHub Actions, CI/CD pipelines, automated deployment security controls
 
-Data & ML: scikit-learn, pandas, Isolation Forest (anomaly detection)
+Data and ML: scikit-learn, pandas, Isolation Forest (anomaly detection)
 
 Cloud: AWS (boto3), security posture assessment
 
 Other: MongoDB, Git, JIRA API integration, automated reporting
 
-I lean toward building tools rather than using them - most of my projects are things I built myself rather than off-the-shelf solutions.`,
+I lean toward building tools rather than using them - most of my projects are things I built myself.`,
   },
   {
     keywords: ['anomaly', 'log detector', 'isolation forest', 'machine learning', 'ml', 'brute force', 'flagship'],
@@ -104,11 +105,9 @@ I lean toward building tools rather than using them - most of my projects are th
 It's a hybrid system combining deterministic security rules with an Isolation Forest ML model. The key architectural decision: security rules decide what counts as a threat; the ML score is used only to rank severity. This solved the false-positive problem from earlier versions.
 
 Results on 531 test log entries:
-• 3/3 injected attack patterns detected (brute force, endpoint scanning, odd-hour access)
-• 0 false positives
-• Built across 3 iterations - each fixing a specific detection flaw
-
-The design principle mirrors how good SIEM tools work: deterministic rules gate alerts, ML prioritises them.
+- 3/3 injected attack patterns detected (brute force, endpoint scanning, odd-hour access)
+- 0 false positives
+- Built across 3 iterations - each fixing a specific detection flaw
 
 GitHub: github.com/hvarsh-cyber/ai-log-anomaly-detector`,
   },
@@ -140,7 +139,7 @@ For graduate roles (post-December 2027), I'd be happy to discuss visa arrangemen
 
 The project was Stack Truck: a full-stack platform enabling goods pooling and real-time coordination between truck drivers and clients, aimed at reducing idle truck capacity in last-mile logistics.
 
-Built in 24 hours with Node.js, MongoDB Atlas, EJS, and Bootstrap. The win came down to shipping a working end-to-end product - auth, real-time messaging, and data model - under a hard deadline.`,
+Built in 24 hours with Node.js, MongoDB Atlas, EJS, and Bootstrap.`,
   },
   {
     keywords: ['spot award', 'award', 'recognition', 'shoutout', 'dish award'],
@@ -148,16 +147,16 @@ Built in 24 hours with Node.js, MongoDB Atlas, EJS, and Bootstrap. The win came 
 
 The award was for automating critical-path test flows for Apple and OFSLL integrations - specifically for demonstrating quick learning ability and saving significant manual testing effort on Dev-Fi test automation.
 
-I also received two further onshore manager shoutouts during FY2024–2025 for ownership, timely delivery, and handling critical production situations.`,
+I also received two further onshore manager shoutouts during FY2024 to 2025 for ownership, timely delivery, and handling critical production situations.`,
   },
   {
     keywords: ['contact', 'email', 'reach', 'linkedin', 'get in touch', 'connect'],
     answer: `Best ways to reach me:
 
-• Email: himavarshs329@gmail.com
-• LinkedIn: linkedin.com/in/himavarsh-s-0a215b213
-• GitHub: github.com/hvarsh-cyber
-• Portfolio: hvarsh-cyber.github.io
+- Email: himavarshs329@gmail.com
+- LinkedIn: linkedin.com/in/himavarsh-s-0a215b213
+- GitHub: github.com/hvarsh-cyber
+- Portfolio: hvarsh-cyber.github.io
 
 I'm actively looking for cybersecurity internships and graduate roles in Australia - happy to chat.`,
   },
@@ -166,6 +165,24 @@ I'm actively looking for cybersecurity internships and graduate roles in Austral
     answer: `My resume is available as a PDF - click the "Resume" button at the top of the page to download it.
 
 It covers my professional experience at EchoStar / Dish Network, my Monash Master of Cybersecurity, all projects, certifications, and achievements.`,
+  },
+  {
+    keywords: ['hobbies', 'interests', 'outside work', 'outside of work', 'personal', 'free time', 'fun', 'travel', 'badminton', 'coins', 'stamps', 'collection', 'sport'],
+    answer: `Outside of work and study I keep pretty busy.
+
+- I travel whenever I can - exploring new places and cultures is something I genuinely look forward to. 
+- I play badminton regularly, which keeps me competitive and focused. 
+- I also collect coins and stamps, which sounds niche but it is genuinely fascinating - every piece has a history behind it. It has also made me surprisingly good at spotting patterns and details, which turns out to be useful in security work too.`,
+  },
+  {
+    keywords: ['languages', 'speak', 'language', 'fluent', 'kannada', 'hindi', 'english', 'communication'],
+    answer: `I speak three languages fluently:
+
+- English - professional working proficiency, primary language for work and study
+- Kannada - native language
+- Hindi - fluent
+
+Living and studying in Melbourne has also sharpened my cross-cultural communication skills, working with teams across India, the US, and Australia.`,
   },
 ];
 
@@ -194,7 +211,6 @@ function TypingMessage({ text, onDone }) {
 
   useEffect(() => {
     let i = 0;
-    // Type character by character but in chunks for speed
     const interval = setInterval(() => {
       if (i < text.length) {
         const chunk = Math.min(4, text.length - i);
@@ -231,7 +247,6 @@ export default function AskMeAnything() {
     setMessages(prev => [...prev, { role: 'user', text: q }]);
     setTyping(true);
 
-    // Small delay to feel natural
     setTimeout(() => {
       const answer = getAnswer(q);
       setMessages(prev => [...prev, { role: 'assistant', text: answer, typing: true }]);
